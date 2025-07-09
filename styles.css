@@ -1,0 +1,455 @@
+/* charity: water Brand Colors & Fonts
+
+Primary Colors:
+- Yellow:      #ffc908
+- Blue:        #003366
+
+Secondary Colors:
+- Light Blue: #78a8ba
+- Green:      #4FCB53
+- Orange:     #bf6b45
+- Red:        #F5402C
+- Dark Green: #159A48
+- Pink:       #F16061
+
+Fonts:
+- Proxima Nova
+- Avenir
+
+*/
+
+/*
+ Charity: Water Landing Page Styles
+ This CSS incorporates all changes to match the target design image,
+ with adjusted hero image positioning.
+*/
+
+/* Reset basic browser styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f8fb; /* Soft light blue for a fresh look */
+    font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222; /* Default dark text color */
+    line-height: 1.6;
+
+    /* MODIFIED: Add the gradient to the body's background-image property */
+    background-image:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0) 50%,     /* Starts fully transparent at 50% of the width */
+            rgba(0, 0, 0, 0.7) 100%   /* Becomes 70% opaque black at the far right */
+        ),
+        url('img/Background.jpg'); /* Your existing background image for the body */
+
+    background-size: cover;      /* Make the image cover the whole area */
+    background-repeat: no-repeat;/* Do not repeat the image */
+    background-position: center; /* Center the image */
+}
+
+h2 {
+    color: #003366; /* Primary blue for section headings */
+    margin-top: 0;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+    /* ADDED: Larger font size for all h2 headings */
+    font-size: 2.0em; /* This will make the heading significantly larger */
+}
+
+/* Header/Navigation Styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    /* MODIFIED BACK: Add the transparent black background for the header */
+    background-color: rgba(0, 0, 0, 0.4); /* Re-added transparent black */
+    color: #fff; /* White text for contrast (already present, but good to confirm) */
+    box-shadow: none; /* No distinct shadow on header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Ensure dropdown menus still have a solid background */
+.main-nav .dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8); /* Keep solid white background for dropdown menus */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    min-width: 160px;
+    z-index: 1; /* Make sure dropdown is above the header */
+    border-radius: 5px;
+    padding: 10px 0;
+    left: 0;
+    top: 100%;
+}
+
+/* Logo styles for charity: water header */
+.main-header .logo img {
+    height: 32px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    position: relative;
+    /* MODIFIED: Increased horizontal margin to spread out menu items */
+    margin: 0 30px; /* Changed from 15px to 30px. Adjust as needed. */
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 12px 18px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #ffc908; /* Yellow on hover */
+}
+
+.main-nav .dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+
+.main-nav .dropdown-menu li a {
+    color: #222; /* Dark text for dropdown items */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+
+.main-nav .dropdown-menu li a:hover {
+    background-color: rgba(120, 168, 186, 0.5);
+    color: #003366;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-actions .sign-in {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header-actions .sign-in:hover {
+    color: #FFC907;
+}
+
+.header-actions .give-button {
+    background-color: #ffc908;
+    color: #222;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.header-actions .give-button:hover {
+    background-color: #78a8ba;
+    transform: translateY(-1px);
+}
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    min-height: 550px;
+    color: #ffc908;
+    padding: 0;
+    border-radius: 0 0 16px 16px;
+    box-shadow: none;
+    margin: 0;
+    padding-top: 62px;
+    z-index: 1;
+
+    /* REMOVED: Gradient is now on the body */
+    background-image: none; /* Ensure no residual background if any */
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+
+    background-color: transparent; /* Keep transparent */
+    box-shadow: none; /* Keep no shadow */
+    border-radius: 0; /* Keep no border-radius */
+
+    max-width: 600px;
+    /* MODIFIED: Reduced margin-right even further to shift the box more to the right */
+    margin-right: 0%; /* Changed from 2% to 0%. This will align it directly to the right edge. */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+.hero h1 {
+    font-size: 2.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.hero p {
+    font-size: 1.1em;
+    margin-top: 0;
+    max-width: 450px;
+    margin: 0 auto 15px auto;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.take-action-prompt {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    margin: 20px auto 0 auto;
+}
+
+.take-action-prompt h3 {
+    color: #FFC907;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.take-action-prompt p {
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+}
+
+.progress-bar-container {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    height: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    background-color: #bf6b45; /* Red for progress bar fill */
+    height: 100%;
+    border-radius: 5px;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.hero-donate-button {
+    background-color: #FFC907;
+    color: #222;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(255, 201, 7, 0.2);
+}
+
+.hero-donate-button:hover {
+    background-color: #FF902A;
+    transform: translateY(-2px);
+}
+
+/* Real-World Impact Story Section */
+.impact-story {
+    text-align: center;
+    margin-top: 60px;
+    background-color: rgba(255, 250, 240, 0.7);
+    padding: 40px 20px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.impact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    text-align: left;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.impact-image {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(46, 157, 247, 0.15);
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.impact-content p {
+    flex: 1;
+    min-width: 300px;
+    /* ADDED: Larger font size for the impact story paragraph */
+    font-size: 1.15em; /* This will make the text about 15% larger than default */
+}
+
+/* Donate Button Styles (General) */
+.donate-button {
+    display: inline-block;
+    background-color: #ffc908;
+    color: #fff;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 18px;
+    box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.donate-button:hover {
+    background-color: #78a8ba;
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* Header */
+    .main-header {
+        flex-direction: column;
+        padding: 10px;
+        /* MODIFIED BACK FOR MOBILE: Add transparent black background for mobile header */
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .main-header .logo { margin-bottom: 10px; }
+    .main-nav ul { flex-direction: column; width: 100%; }
+    .main-nav ul li { margin: 5px 0; }
+    .main-nav ul li a { padding: 8px 0; }
+    .main-nav .dropdown .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: rgba(255,255,255,0.1);
+        padding: 0;
+    }
+    .main-nav .dropdown-menu li a { padding: 8px 20px; }
+    .header-actions { margin-top: 10px; justify-content: center; width: 100%; }
+
+    /* Hero Section Mobile */
+    .hero {
+        min-height: 500px;
+        padding: 0;
+        /* Background position for mobile is now handled by body's background-position */
+        /* background-position: 70% center; */
+
+        /* Ensure no residual background from previous attempts */
+        background-image: none;
+    }
+
+    .hero-content {
+        position: static;
+        transform: none;
+        width: 90%;
+        padding: 25px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5); /* Re-add a background for mobile readability */
+        border-radius: 8px;
+        margin: 20px auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 1em;
+        max-width: 100%;
+    }
+
+    .take-action-prompt {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Impact Story Mobile */
+    .impact-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    .impact-image {
+        margin-bottom: 16px;
+        max-width: 90%;
+    }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 769px) {
+    .main-header {
+        padding: 20px 40px;
+    }
+
+    .hero {
+        margin: 0;
+        border-radius: 0 0 16px 16px;
+        box-shadow: none;
+    }
+}
+
+/* Specific adjustments for very large desktops */
+@media (min-width: 1200px) {
+    .hero {
+        min-height: 650px;
+    }
+    .hero h1 {
+        font-size: 3.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+    .hero-content {
+        width: 45%;
+        margin-right: 80px;
+    }
+    
+}
