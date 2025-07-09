@@ -43,7 +43,7 @@ body {
             rgba(0, 0, 0, 0) 50%,     /* Starts fully transparent at 50% of the width */
             rgba(0, 0, 0, 0.7) 100%   /* Becomes 70% opaque black at the far right */
         ),
-        url('img/Background.jpg'); /* Your existing background image for the body */
+        url('img/background.jpg'); /* Your existing background image for the body */
 
     background-size: cover;      /* Make the image cover the whole area */
     background-repeat: no-repeat;/* Do not repeat the image */
